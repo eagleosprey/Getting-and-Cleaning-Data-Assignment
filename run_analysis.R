@@ -1,6 +1,4 @@
-## This README.md file explains how the run_analysis.R 
-## script works and includes most of the code from run-analysis.R
-
+run_analysis <- function(){
 ##run_analysis.R script combines several components of accelerometer
 ##data into 1 data set. Then it extracts the mean and standard 
 ##deviation measurements, adding descriptive activity names.
@@ -270,3 +268,5 @@ Average.of.all.variables.for.each.subject.and.activity.combination<-t(avg.by.sub
 
 write.table(Average.of.all.variables.for.each.subject.and.activity.combination, 
             file = "Average.of.all.variables.for.each.subject.and.activity.combination.txt")
+
+}
