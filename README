@@ -1,12 +1,15 @@
 ## This README.md file explains how the run_analysis.R 
 ## script works and includes most of the code from run-analysis.R
 
-## run_analysis.R script combines several components of accelerometer
-## data into 1 data set. Then it extracts the mean and standar 
-## deviation measurements, adding descriptive activity names.
+##run_analysis.R script combines several components of accelerometer
+##data into 1 data set. Then it extracts the mean and standard 
+##deviation measurements, adding descriptive activity names.
 ## Then it creates a second tidy data set with the average
 ## of each variable for each activity and each subject
-
+##
+## A description of the input data set and project can be found at
+## "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones"        
+## The data was downloaded 4/24/2014        
         
 ## This script follows the instructions specified in
 ## Assignment description. Specifically:
@@ -23,9 +26,11 @@
         
 ## 2. Manually extract zip file contents.
 ##    The zip file extractor should place the unzipped data        
-##    into a subdirectory below the R script directory
-##    Using the names shown below        
+##    into a subdirectory below the R script directory.
+##
+##    For example, if the R script directory is: 
 ##    - R script directory: ~\Assignment
+##    The the data directory path should be: 
 ##    - Data directory:     ~\Assignment\UCI HAR Dataset
         
 ## The remainder of the script handles the assignment
@@ -119,7 +124,7 @@ means.std.a.df<-cbind(means.std.df,activity)
 ## 13.  Lookup the activity using activityCode and place in
 ##      field created in last step
 ##      Since there is no base R function to do this
-##      And packages use for loops to provide the verctorization
+##      And packages use for loops to provide the vectorization,
 ##      a for loop from 1 to the length of the df was used.
 ##      Each row's activityCode was used to lookup the 
 ##      activity Label in the activityLabels df,
@@ -236,11 +241,13 @@ split.means.std.a.df<-split(means.std.a.df[,3:68],
 ##
 ## Calculate the average/mean for all observations of each variable
 ## by the combination of Subject and Activity
+##
 avg.by.subject.and.activity<-sapply(split.means.std.a.df,colMeans)
 ##
 ## Transpose the dataset to show the variables by column and rename the 
 ## data frame to reflect what it contains
-## Store that transposition in the a descriptive data set name
+## Store that transposition in a descriptive data set name
+##
 Average.of.all.variables.for.each.subject.and.activity.combination<-t(avg.by.subject.and.activity)
 
 ##********************************************
