@@ -126,7 +126,7 @@ The variable list from Section 1. Variables, above, reflects transformations and
 13. Z indicates a reading for the z-axis.
 
 * Examples:
-1. "Time Body Acceleration Mean X"" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-asis. 
+1. "Time Body Acceleration Mean X" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-asis. 
 
 2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an average of multiple standard deviation values of the body component of the Jerk derivation from the body component of the accelerameter reading of the Z-axis.
 
