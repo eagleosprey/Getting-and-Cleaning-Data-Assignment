@@ -14,7 +14,7 @@ The sections of this code book are:
 
 Variables
 ---------------------------------
-* Column variables
+* Column variables (note: the description of each variable appears in the next section, Data)
 
 1. Time Body Acceleration Mean X
 2. Time Body Acceleration Mean Y
@@ -107,9 +107,9 @@ Data
 ---------------------------------
 The data representated by the variables should be interpreted as follows:
 
-All data elements represent an average of multiple 3-axial (that is, X, Y, and Z) accelerometer and gyroscope reading measurements for a Subject and Activity combination.
+All data elements represent an average of multiple 3-axial (that is, X, Y, and Z) accelerometer and gyroscope reading measurements for a Subject-and-Activity combination.
 
-The variable list from Section 1. Variables, above, reflect transformations and combinations of the raw signals as indicated by which of the following labels the variable name includes follows:
+The variable list from Section 1. Variables, above, reflects transformations and combinations of the raw signals as indicated by which of the following the variable name includes, as follows:
 
 1. Time reflects time domaain signals.
 2. Frequency reflects frequency domain signals.
@@ -125,11 +125,18 @@ The variable list from Section 1. Variables, above, reflect transformations and 
 12. Y indicates a reading for the y-axis.
 13. Z indicates a reading for the z-axis.
 
+* Examples:
+1. "Time Body Acceleration Mean X"" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-asis. 
+
+2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an average of multiple standard deviation values of the body component of the Jerk derivation from the body component of the accelerameter reading of the Z-axis.
+
+
+
 Transformations
 ---------------------------------
-Each element in the data table represents an average of multiple SUbject-and-Activity combination readings from the input table.  Details of the input table are documented in the main script.
+Each element in the data table represents an average of multiple Subject-and-Activity combination readings from the input table.  Details of the input table are documented in the main script.
 
-The script also performs a t() function (transform function) to flip the data frame so that the variables appeared in columns and the Subject and Activity combinations appeared as row names.
+The script also performs a t() function (transform function) to flip the data frame so that the variables appear in columns and the Subject and Activity combinations appear as row names.
 
 4. Details of the run_analysis.R script
 ---------------------------------------
