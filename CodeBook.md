@@ -98,6 +98,7 @@ The 6 activities are:
 6. LAYING
 
 EXAMPLES:
+
 1. Row name "1.LAYING" indicates Subject number 1 doing Activity Laying.
 
 2. Row name "26.WALKING" indicates Subject number 26 doing Activity Walking. 
@@ -128,6 +129,7 @@ The variable list from Section 1. Variables, above, reflects transformations and
 
 
 EXAMPLES:
+
 1. "Time Body Acceleration Mean X" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-asis. 
 
 2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an average of multiple standard deviation values of the body component of the Jerk derivation from the body component of the accelerameter reading of the Z-axis.
