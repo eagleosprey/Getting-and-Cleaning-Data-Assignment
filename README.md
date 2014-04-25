@@ -60,12 +60,12 @@ Then the data directory path should be:
         
 3) Read Test and Training files into R tables
  
-   1) X_test.txt
-   2) y_test.txt
-   3) X_train.txt
-   4) y_train.txt
-   5) subject_test.txt
-   6) subject_train.txt
+   1) X_test.txt  
+   2) y_test.txt  
+   3) X_train.txt  
+   4) y_train.txt  
+   5) subject_test.txt  
+   6) subject_train.txt  
 
 ```{r}
 xtest<-read.table("UCI HAR Dataset/test/X_test.txt")  
@@ -76,9 +76,8 @@ subjectTest<-read.table("UCI HAR Dataset/test/subject_test.txt")
 subjectTrain<-read.table("UCI HAR Dataset/train/subject_train.txt")  
 ```
 
-4) Read features file to determine names of variables.
-
-stringsAsFactors = F so that vector can be used for row names
+4) Read features file to determine names of variables. Set 
+stringsAsFactors = F so that vector can be used for row names.
 ```{r} 
 features<-read.table("UCI HAR Dataset/features.txt",stringsAsFactors = FALSE)
 ```
@@ -107,7 +106,9 @@ testTable<-cbind(subjectTest, ytest, xtest)
 trainTable<-cbind(subjectTrain, ytrain, xtrain)
 ```
 10) Combine the Test and Train table
+```{r}
 allTable<-rbind(testTable, trainTable)
+```
 
 >  This completes #1 of the assignment
   Merges the training and the test sets to
@@ -274,8 +275,8 @@ split.means.std.a.df<-split(means.std.a.df[,3:68],
 avg.by.subject.and.activity<-sapply(split.means.std.a.df,colMeans)
 ```
  Transpose the dataset to show the variables by column and rename the 
- data frame to reflect what it contains
- Store that transposition in a descriptive data set name
+ data frame to reflect what it contains. 
+ Store that transposition in a descriptive data set name.
 ```{r}
 Average.of.all.variables.for.each.subject.and.activity.combination<-t(avg.by.subject.and.activity)
 ```
