@@ -1,6 +1,7 @@
 This README.md file explains how the run_analysis.R script works and includes most of the code from run-analysis.R
 
 The CodeBook.md provides information on the following:
+
 1. Variables 
 2. Data
 3. Transformations and other work
@@ -8,7 +9,7 @@ The CodeBook.md provides information on the following:
 
 
 run_analysis.R script
-
+-------------------------
 run_analysis.R script combines several components of accelerometer
 data into 1 data set. Then it extracts the mean and standard.
 deviation measurements, adding descriptive activity names.
@@ -28,18 +29,20 @@ The data was downloaded 4/24/2014.
 
  Steps 1 and 2 give details for placing the "Samsung data"
  in the working directory.
-        
- 1. Manually download data zip file from URL to the
+ 
+ 
+1) Manually download data zip file from URL to the
     working directory (that is, the directory that
     stores this run_analysis.R file)
         
- 2. Manually extract zip file contents.
+2) Manually extract zip file contents.
     The zip file extractor should place the unzipped data        
     into a subdirectory below the R script directory.
 
     For example, if the R script directory is: 
     - R script directory: ~\Assignment
-    The the data directory path should be: 
+    
+    Then the data directory path should be: 
     - Data directory:     ~\Assignment\UCI HAR Dataset
         
  The remainder of the script handles the assignment
@@ -47,7 +50,8 @@ The data was downloaded 4/24/2014.
  described in #2        
         
         
- 3. Read Test and Training files into R tables
+3) Read Test and Training files into R tables
+ 
     1) X_test.txt
     2) y_test.txt
     3) X_train.txt
@@ -62,43 +66,41 @@ ytrain<-read.table("UCI HAR Dataset/train/y_train.txt")
 subjectTest<-read.table("UCI HAR Dataset/test/subject_test.txt")
 subjectTrain<-read.table("UCI HAR Dataset/train/subject_train.txt")
 
- 4. Read features file to determine names of variables
+4) Read features file to determine names of variables
+ 
     stringsAsFactors = F so that vector can be used for row names
+
 features<-read.table("UCI HAR Dataset/features.txt",stringsAsFactors = FALSE)
 
- 5. Read activity_labels file
+5) Read activity_labels file
 
 activityLabels<-read.table("UCI HAR Dataset/activity_labels.txt", stringsAsFactors=FALSE)
 
- 6. Assign variable names to xtest, xtrain using features data frame
+6) Assign variable names to xtest, xtrain using features data frame
 colnames(xtest) <- features[,2]
 colnames(xtrain) <- features[,2]
 
- 7. Assign variable names (colnames) to ytest, ytrain data frames
+7) Assign variable names (colnames) to ytest, ytrain data frames
 colnames(ytest) <- "activityCode"
 colnames(ytrain) <- "activityCode"
 
- 8. Assign variable names (colnames) to subject_test, subject_train data frames
+8) Assign variable names (colnames) to subject_test, subject_train data frames
 colnames(subjectTest) <- "subject"
 colnames(subjectTrain) <- "subject"
 
- 9.  Combine the 3 Test and Train tables into 1 of each
+9) Combine the 3 Test and Train tables into 1 of each
 testTable<-cbind(subjectTest, ytest, xtest)
 trainTable<-cbind(subjectTrain, ytrain, xtrain)
 
- 10. Combine the Test and Train table
+10) Combine the Test and Train table
 allTable<-rbind(testTable, trainTable)
 
-********************************************
-********************************************
   This completes #1 of the assignment
   Merges the training and the test sets to
   create one data set.
 
-********************************************
-********************************************
 
- 11. Extract variables that contain mean() and std().
+11) Extract variables that contain mean() and std().
      The datasets documentation identifies that those 
      variables contain mean and std in the variable name.
      The documentation is in features_info.txt and README.txt
@@ -108,7 +110,7 @@ allTable<-rbind(testTable, trainTable)
 meansv<-grep("mean\\(",names(allTable))
 stdv<-grep("std\\(",names(allTable))
 
-   Second, combine the vectors from above that give the columns
+Second, combine the vectors from above that give the columns
    along with the subject and activity cols (1 & 2).
 
 
@@ -116,21 +118,18 @@ extractv<-c(1, 2, meansv, stdv)
 
   Third, exctact/subset those variables/columns
 means.std.df<-allTable[,extractv]
-********************************************
-********************************************
+
   This completes #2 of the assignment
   2. Extracts only the measurements on the mean 
   and standard deviation for each measurement. 
 
-********************************************
-********************************************
 
- 12. Add a column/variable that shows the activity
+12) Add a column/variable that shows the activity
      specified by the activityCode
 activity<-means.std.df[,2]
 means.std.a.df<-cbind(means.std.df,activity)
 
- 13.  Lookup the activity using activityCode and place in
+13)  Lookup the activity using activityCode and place in
       field created in last step
       Since there is no base R function to do this
       And packages use for loops to provide the vectorization,
@@ -142,15 +141,13 @@ means.std.a.df<-cbind(means.std.df,activity)
 for (i in 1:length(means.std.df[,2])){
         means.std.a.df$activity[i]<-activityLabels[means.std.a.df$activityCode[i],"V2"]
 }
-********************************************
-********************************************
+
+
   This completes #3 of the assignment
   3. Uses descriptive activity names to name the activities in the data set
 
-********************************************
-********************************************
 
- 14.  Create descriptive column names
+14)  Create descriptive column names
 test<-colnames(means.std.a.df)
 colnames(means.std.a.df)[1]<-"Subject"
 colnames(means.std.a.df)[2]<-"Activity Code"
@@ -228,19 +225,16 @@ colnames(means.std.a.df)[66]<-"Frequency Body Acceleration Jerk Magnitude Standa
 colnames(means.std.a.df)[67]<-"Frequency Body Gyro Magnitude Standard Deviation"
 colnames(means.std.a.df)[68]<-"Frequency Body Gyro Jerk Magnitude Standard Deviation"
 colnames(means.std.a.df)[69]<-"Activity"
-********************************************
-********************************************
-  This completes #4 of the assignment
+
+This completes #4 of the assignment
   4. Appropriately labels the data set with descriptive activity names. 
   which was clarified as meaning to name the variables/column with
   human freindly labels
 
-  THis also completes the FIRST TIDY DATA SET
-********************************************
-********************************************
+  This also completes the FIRST TIDY DATA SET
 
 
- 15.  Average each variable by activity and subject
+15)  Average each variable by activity and subject
  The assignment was interpreted as requesting the average
  of the data in the FIRST TIDY DATA SET containing mean and 
  std variables
@@ -263,19 +257,13 @@ avg.by.subject.and.activity<-sapply(split.means.std.a.df,colMeans)
 
 Average.of.all.variables.for.each.subject.and.activity.combination<-t(avg.by.subject.and.activity)
 
-********************************************
-********************************************
+
   This completes #5 of the assignment
   5. Creates a second, tidy data set with the average 
      of each variable for each activity and each subject. 
 
-********************************************
-********************************************
-
-
-
- 16. Write the second tidy data set, which will be uploaded
-     as a submission to the project
+16) Write the second tidy data set, which will be uploaded
+    as a submission to the project
 
 write.table(Average.of.all.variables.for.each.subject.and.activity.combination, 
-            file = "Average.of.all.variables.for.each.subject.and.activity.combination.txt")
+        file = "Average.of.all.variables.for.each.subject.and.activity.combination.txt")
