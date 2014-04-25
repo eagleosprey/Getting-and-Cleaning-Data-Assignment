@@ -1,9 +1,9 @@
 CodeBook.md
 ========================================================
 This code book describes the dataset:
-Average.of.all.variables.for.each.subject.and.activity.combination
+Average.of.all.variables.for.each.subject.and.activity.combination.txt
 
-The dataset was produced for the Coursera Getting and Cleaning Data Course Prject.
+The dataset was produced for the Coursera Getting and Cleaning Data Course Project.
 
 The sections of this code book are:
 
@@ -85,9 +85,9 @@ Variables
 
 * Rows/Observations:
 
-Each row has a row name which indicates a combination of an anonymous Subject and one of 6 Activities as follows:
+Each row has a row name which indicates a combination of 1) an anonymous Subject, and 2) one of 6 Activities, as described below.
 
-The subjects are people who paritipated in the study. Their identity is kept private and they are noted by a number from 1 to 30,
+The subjects are people who participated in the study. Their identity is kept private and they are noted by a number from 1 to 30.
 
 The 6 activities are:
 1. WALKING
@@ -106,33 +106,34 @@ EXAMPLES:
 
 Data
 ---------------------------------
-The data representated by the variables should be interpreted as follows:
+The data Representative by the variables should be interpreted as follows:
 
 All data elements represent an average of multiple 3-axial (that is, X, Y, and Z) accelerometer and gyroscope reading measurements for a Subject-and-Activity combination.
 
-The variable list from Section 1. Variables, above, reflects transformations and combinations of the raw signals as indicated by which of the following the variable name includes, as follows:
+The readings are normalized and bounded within [-1,1].
 
-1. Time reflects time domaain signals.
-2. Frequency reflects frequency domain signals.
-3. Acceleration reflects an accelerometer reading.
-4. Gyro reflects a gyroscope reading.
-5. Body reflects the body component of the acceleration signal.
-6. Gravity reflects the gravity component of the acceleration signal.
-7. Jerk reflects a derivation from the body linear acceleration and angular velocity readings.
-8. Magnitude reflects a calculation using the Euclidean norm.
-9. Mean indicates a statistical mean value calculation of the raw signals.
-10. Standard Deviation indicates a statistical standard deviation calculation of the raw signals.
+The variable list from Section 1. Variables (above) reflects transformations and combinations of the raw signals as indicated by which of the following terms the variable name includes, as follows:
+
+1. Time :  time domain signals.
+2. Frequency:  frequency domain signals.
+3. Acceleration: an accelerometer reading.
+4. Gyro: a gyroscope reading.
+5. Body: the body component of the acceleration signal.
+6. Gravity: the gravity component of the acceleration signal.
+7. Jerk: a derivation from the body linear acceleration and angular velocity readings.
+8. Magnitude: a calculation using the Euclidean norm.
+9. Mean: a statistical mean value calculation of the raw signals.
+10. Standard Deviation: a statistical standard deviation calculation of the raw signals.
 11. X indicates a reading for the X-axis.
 12. Y indicates a reading for the y-axis.
 13. Z indicates a reading for the z-axis.
 
 
-
 EXAMPLES:
 
-1. "Time Body Acceleration Mean X" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-asis. 
+1. "Time Body Acceleration Mean X" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-axis. 
 
-2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an average of multiple standard deviation values of the body component of the Jerk derivation from the body component of the accelerameter reading of the Z-axis.
+2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an average of multiple standard deviation values of the Jerk derivation from the body component of the accelerometer reading of the Z-axis.
 
 
 
@@ -141,6 +142,7 @@ Transformations
 Each element in the data table represents an average of multiple Subject-and-Activity combination readings from the input table.  Details of the input table are documented in the main script.
 
 The script also performs a t() function (transform function) to flip the data frame so that the variables appear in columns and the Subject and Activity combinations appear as row names.
+
 
 4. Details of the run_analysis.R script
 ---------------------------------------
