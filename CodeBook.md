@@ -102,7 +102,7 @@ The sections of this code book are:
 
 Data
 ---------------------------------
-The data Representative by variables 3 to 68 should be interpreted as follows:
+The data represented by variables 3 to 68 should be interpreted as follows:
 
 All data elements represent an **average** of multiple 3-axial (that is, X, Y, and Z) accelerometer and gyroscope reading measurements for a Subject and Activity combination.
 
