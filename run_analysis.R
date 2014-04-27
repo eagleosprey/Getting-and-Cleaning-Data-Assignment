@@ -235,8 +235,9 @@ colnames(means.std.a.df)[69]<-"Activity"
 ## std variables
 ##
 ## Split data by each variable - there are 66 variables so
-## produce a dataframe of all 66 variables
+## produce a data set of all 66 variables
 ## for each combination of Subject and Activity.
+##
 ##
 split.means.std.a.df<-split(means.std.a.df[,3:68], 
         list(means.std.a.df$Subject, means.std.a.df$Activity))
@@ -246,11 +247,41 @@ split.means.std.a.df<-split(means.std.a.df[,3:68],
 ##
 avg.by.subject.and.activity<-sapply(split.means.std.a.df,colMeans)
 ##
-## Transpose the dataset to show the variables by column and rename the 
-## data frame to reflect what it contains
-## Store that transposition in a descriptive data set name
+###############################################################
+###############################################################
+###############################################################
+## Transpose the dataset to show the variables in columns.
+
+avg.by.subject.and.activity<-t(avg.by.subject.and.activity)
+
+## 16. Convert the numeric vector output from the split to a 
+## TIDY data frame. Separate and store the rownames into variables.
+## 
 ##
-Average.of.all.variables.for.each.subject.and.activity.combination<-t(avg.by.subject.and.activity)
+
+##Convert to data frame.
+##Technique from http://stackoverflow.com/questions/10234734/converting-a-numeric-matrix-into-a-data-table-or-data-frame
+avg.by.subject.and.activity<-as.data.frame(avg.by.subject.and.activity)
+
+##Separate the rownnames and put into variables to be bound to dataframe
+rownamedf<-strsplit(rownames(avg.by.subject.and.activity),"\\.")
+
+##Convert the result of strsplit into a df to be bound.
+## Technique from http://stackoverflow.com/questions/4227223/r-list-to-data-frame
+SubjectandActivity<-data.frame(Reduce(rbind, rownamedf), stringsAsFactors=FALSE)
+
+##Name the cols of the temp data frame with Subject and Activity.
+colnames(SubjectandActivity)<-c("Subject","Activity")
+
+##Bind/add Subject and Acvitity as variables to dataframe.
+avg.by.subject.and.activity<-cbind(SubjectandActivity, avg.by.subject.and.activity)
+
+##Remove the rownames
+rownames(avg.by.subject.and.activity)<-NULL
+
+##Rename the data frame to reflect what it contains
+Average.of.all.variables.for.each.subject.and.activity.combination<-avg.by.subject.and.activity
+
 
 ##********************************************
 ##********************************************
@@ -263,10 +294,11 @@ Average.of.all.variables.for.each.subject.and.activity.combination<-t(avg.by.sub
 
 
 
-## 16. Write the second tidy data set, which will be uploaded
+## 17. Write the second tidy data set, which will be uploaded
 ##     as a submission to the project
 
 write.table(Average.of.all.variables.for.each.subject.and.activity.combination, 
             file = "Average.of.all.variables.for.each.subject.and.activity.combination.txt")
+
 
 }

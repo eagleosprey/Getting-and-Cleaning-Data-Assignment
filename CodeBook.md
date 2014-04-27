@@ -3,7 +3,7 @@ CodeBook.md
 This code book describes the dataset:
 Average.of.all.variables.for.each.subject.and.activity.combination.txt
 
-The dataset was produced for the Coursera Getting and Cleaning Data Course Project.
+The dataset was produced for the Coursera Getting and Cleaning Data Project in the Data Science track.
 
 The sections of this code book are:
 
@@ -12,107 +12,103 @@ The sections of this code book are:
 3. Transformations and other work
 4. Details of the run_analysis.R script
 
-Variables
+
+1) Variables
 ---------------------------------
-* Column variables (note: the description of each variable appears in the next section, Data)
+#### Note: the details of variables appears below, in the Data section. 
 
-1. Time Body Acceleration Mean X
-2. Time Body Acceleration Mean Y
-3. Time Body Acceleration Mean Z
-4. Time Gravity Acceleration Mean X
-5. Time Gravity Acceleration Mean Y
-6. Time Gravity Acceleration Mean Z
-7. Time Body Acceleration Jerk Mean X
-8. Time Body Acceleration Jerk Mean Y
-9. Time Body Acceleration Jerk Mean Z
-10. Time Body Gyro Mean X
-11. Time Body Gyro Mean Y
-12. Time Body Gyro Mean Z
-13. Time Body Gyro Jerk Mean X
-14. Time Body Gyro Jerk Mean Y
-15. Time Body Gyro Jerk Mean Z
-16. Time Body Acceleration Magnitude Mean
-17. Time Gravity Acceleration Magnitude Mean
-18. Time Acceleration Jerk Magnitude Mean
-19. Time Body Gyro Magnitude Mean
-20. Time Body Gyro Jerk Magnitude Mean
-21. Frequency Body Acceleration Mean X
-22. Frequency Body Acceleration Mean Y
-23. Frequency Body Acceleration Mean Z
-24. Frequency Body Acceleration Jerk Mean X
-25. Frequency Body Acceleration Jerk Mean Y
-26. Frequency Body Acceleration Jerk Mean Z
-27. Frequency Body Gyro Mean X
-28. Frequency Body Gyro Mean Y
-29. Frequency Body Gyro Mean Z
-30. Frequency Body Acceleration Magnitude Mean
-31. Frequency Body Acceleration Jerk Magnitude Mean
-32. Frequency Body Gyro Magnitude Mean
-33. Frequency Body Gyro Jerk Magnitude Mean
-34. Time Body Acceleration Standard Deviation X
-35. Time Body Acceleration Standard Deviation Y
-36. Time Body Acceleration Standard Deviation Z
-37. Time Gravity Acceleration Standard Deviation X
-38. Time Gravity Acceleration Standard Deviation Y
-39. Time Gravity Acceleration Standard Deviation Z
-40. Time Body Acceleration Jerk Standard Deviation X
-41. Time Body Acceleration Jerk Standard Deviation Y
-42. Time Body Acceleration Jerk Standard Deviation Z
-43. Time Body Gyro Standard Deviation X
-44. Time Body Gyro Standard Deviation Y
-45. Time Body Gyro Standard Deviation Z
-46. Time Body Gyro Jerk Standard Deviation X
-47. Time Body Gyro Jerk Standard Deviation Y
-48. Time Body Gyro Jerk Standard Deviation Z
-49. Time Body Acceleration Magnitude Standard Deviation
-50. Time Gravity Acceleration Magnitude Standard Deviation
-51. Time Acceleration Jerk Magnitude Standard Deviation
-52. Time Body Gyro Magnitude Standard Deviation
-53. Time Body Gyro Jerk Magnitude Standard Deviation
-54. Frequency Body Acceleration Standard Deviation X
-55. Frequency Body Acceleration Standard Deviation Y
-56. Frequency Body Acceleration Standard Deviation Z
-57. Frequency Body Acceleration Jerk Standard Deviation X
-58. Frequency Body Acceleration Jerk Standard Deviation Y
-59. Frequency Body Acceleration Jerk Standard Deviation Z
-60. Frequency Body Gyro Standard Deviation X
-61. Frequency Body Gyro Standard Deviation Y
-62. Frequency Body Gyro Standard Deviation Z
-63. Frequency Body Acceleration Magnitude Standard Deviation
-64. Frequency Body Acceleration Jerk Magnitude Standard Deviation
-65. Frequency Body Gyro Magnitude Standard Deviation
-66. Frequency Body Gyro Jerk Magnitude Standard Deviation
+1. Subject
+ * Character (2)
+ * The subjects are people who participated in the study. 
+ * Their identity is kept private and they are noted by a number from 1 to 30.
 
-* Rows/Observations:
+2. Activity
+ * Character(18)
+ * The 6 activities are:
+        1. WALKING
+        2. WALKING_UPSTAIRS
+        3. WALKING_DOWNSTAIRS
+        4. SITTING
+        5. STANDING
+        6. LAYING
 
-Each row has a row name which indicates a combination of 1) an anonymous Subject, and 2) one of 6 Activities, as described below.
-
-The subjects are people who participated in the study. Their identity is kept private and they are noted by a number from 1 to 30.
-
-The 6 activities are:
-1. WALKING
-2. WALKING_UPSTAIRS
-3. WALKING_DOWNSTAIRS
-4. SITTING
-5. STANDING
-6. LAYING
-
-EXAMPLES:
-
-1. Row name "1.LAYING" indicates Subject number 1 doing Activity Laying.
-
-2. Row name "26.WALKING" indicates Subject number 26 doing Activity Walking. 
+3. Time.Body.Acceleration.Mean.X
+4. Time.Body.Acceleration.Mean.Y
+5. Time.Body.Acceleration.Mean.Z
+6. Time.Gravity.Acceleration.Mean.X
+7. Time.Gravity.Acceleration.Mean.Y
+8. Time.Gravity.Acceleration.Mean.Z
+9. Time.Body.Acceleration.Jerk.Mean.X
+10. Time.Body.Acceleration.Jerk.Mean.Y
+11. Time.Body.Acceleration.Jerk.Mean.Z
+12. Time.Body.Gyro.Mean.X
+13. Time.Body.Gyro.Mean.Y
+14. Time.Body.Gyro.Mean.Z
+15. Time.Body.Gyro.Jerk.Mean.X
+16. Time.Body.Gyro.Jerk.Mean.Y
+17. Time.Body.Gyro.Jerk.Mean.Z
+18. Time.Body.Acceleration.Magnitude.Mean
+19. Time.Gravity.Acceleration.Magnitude.Mean
+20. Time.Acceleration.Jerk.Magnitude.Mean
+21. Time.Body.Gyro.Magnitude.Mean
+22. Time.Body.Gyro.Jerk.Magnitude.Mean
+23. Frequency.Body.Acceleration.Mean.X
+24. Frequency.Body.Acceleration.Mean.Y
+25. Frequency.Body.Acceleration.Mean.Z
+26. Frequency.Body.Acceleration.Jerk.Mean.X
+27. Frequency.Body.Acceleration.Jerk.Mean.Y
+28. Frequency.Body.Acceleration.Jerk.Mean.Z
+29. Frequency.Body.Gyro.Mean.X
+30. Frequency.Body.Gyro.Mean.Y
+31. Frequency.Body.Gyro.Mean.Z
+32. Frequency.Body.Acceleration.Magnitude.Mean
+33. Frequency.Body.Acceleration.Jerk.Magnitude.Mean
+34. Frequency.Body.Gyro.Magnitude.Mean
+35. Frequency.Body.Gyro.Jerk.Magnitude.Mean
+36. Time.Body.Acceleration.Standard.Deviation.X
+37. Time.Body.Acceleration.Standard.Deviation.Y
+38. Time.Body.Acceleration.Standard.Deviation.Z
+39. Time.Gravity.Acceleration.Standard.Deviation.X
+40. Time.Gravity.Acceleration.Standard.Deviation.Y
+41. Time.Gravity.Acceleration.Standard.Deviation.Z
+42. Time.Body.Acceleration.Jerk.Standard.Deviation.X
+43. Time.Body.Acceleration.Jerk.Standard.Deviation.Y
+44. Time.Body.Acceleration.Jerk.Standard.Deviation.Z
+45. Time.Body.Gyro.Standard.Deviation.X
+46. Time.Body.Gyro.Standard.Deviation.Y
+47. Time.Body.Gyro.Standard.Deviation.Z
+48. Time.Body.Gyro.Jerk.Standard.Deviation.X
+49. Time.Body.Gyro.Jerk.Standard.Deviation.Y
+50. Time.Body.Gyro.Jerk.Standard.Deviation.Z
+51. Time.Body.Acceleration.Magnitude.Standard.Deviation
+52. Time.Gravity.Acceleration.Magnitude.Standard.Deviation
+53. Time.Acceleration.Jerk.Magnitude.Standard.Deviation
+54. Time.Body.Gyro.Magnitude.Standard.Deviation
+55. Time.Body.Gyro.Jerk.Magnitude.Standard.Deviation
+56. Frequency.Body.Acceleration.Standard.Deviation.X
+57. Frequency.Body.Acceleration.Standard.Deviation.Y
+58. Frequency.Body.Acceleration.Standard.Deviation.Z
+59. Frequency.Body.Acceleration.Jerk.Standard.Deviation.X
+60. Frequency.Body.Acceleration.Jerk.Standard.Deviation.Y
+61. Frequency.Body.Acceleration.Jerk.Standard.Deviation.Z
+62. Frequency.Body.Gyro.Standard.Deviation.X
+63. Frequency.Body.Gyro.Standard.Deviation.Y
+64. Frequency.Body.Gyro.Standard.Deviation.Z
+65. Frequency.Body.Acceleration.Magnitude.Standard.Deviation
+66. Frequency.Body.Acceleration.Jerk.Magnitude.Standard.Deviation
+67. Frequency.Body.Gyro.Magnitude.Standard.Deviation
+68. Frequency.Body.Gyro.Jerk.Magnitude.Standard.Deviation
 
 
 Data
 ---------------------------------
-The data Representative by the variables should be interpreted as follows:
+The data Representative by variables 3 to 68 should be interpreted as follows:
 
-All data elements represent an average of multiple 3-axial (that is, X, Y, and Z) accelerometer and gyroscope reading measurements for a Subject-and-Activity combination.
+All data elements represent an **average** of multiple 3-axial (that is, X, Y, and Z) accelerometer and gyroscope reading measurements for a Subject and Activity combination.
 
 The readings are normalized and bounded within [-1,1].
 
-The variable list from Section 1. Variables (above) reflects transformations and combinations of the raw signals as indicated by which of the following terms the variable name includes, as follows:
+Variables 3 to 68 from Section 1. Variables (above) reflects transformations and combinations of the raw signals as indicated by the terms the variable name includes, as follows:
 
 1. Time :  time domain signals.
 2. Frequency:  frequency domain signals.
@@ -131,19 +127,19 @@ The variable list from Section 1. Variables (above) reflects transformations and
 
 EXAMPLES:
 
-1. "Time Body Acceleration Mean X" is an average of  multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-axis. 
+1. "Time Body Acceleration Mean X" is an **average** of multiple mean values of the time domain signal of the body component of the accelerometer reading  of the x-axis. 
 
-2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an average of multiple standard deviation values of the Jerk derivation from the body component of the accelerometer reading of the Z-axis.
+2. "Frequency Body Acceleration Jerk Standard Deviation Z" is an **average** of multiple standard deviation values of the Jerk derivation from the body component of the accelerometer reading of the Z-axis.
 
 
 
 Transformations
 ---------------------------------
-Each element in the data table represents an average of multiple Subject-and-Activity combination readings from the input table.  Details of the input table are documented in the main script.
+Each element in the data table represents an **average** of multiple Subject-and-Activity combination readings from the input table.  Details of the input table are documented in the main script.
 
 The script also performs a t() function (transform function) to flip the data frame so that the variables appear in columns and the Subject and Activity combinations appear as row names.
 
 
 4. Details of the run_analysis.R script
 ---------------------------------------
-The run_analysis.R script is well document within the script, with explanations of the input file, steps taken, purpose of each step, and output produced by steps.  The README file also contains the script and documentation.
+The run_analysis.R script is well documented within the script, with explanations of the input file, steps taken, purpose of each step, and output produced by the steps.  The README file also contains the script and documentation.
